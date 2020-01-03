@@ -1,6 +1,5 @@
 package step_definations;
 
-import java.io.FileNotFoundException;
 import java.util.Properties;
 
 import org.junit.Assert;
@@ -13,27 +12,25 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class homePageTest {
+public class homePageTest extends ReadPropertyFile {
 	WebDriver driver;
 	public String url = "https://www.capitalone.com/";
 	public homePage hm;
-	Properties prop;
+	public Properties prop;
 
-	
 	public homePageTest() {
 		driver=Hooks.driver;
 	}
-	
 	
 	@Given ("^user is already in the homepage$")
 	public void userIsAlreadyInThehomepage() {
 		driver.get(url);
 	}
 	
-	 @When ("^user enters invalid username and password$")
-	 public void userEntersInvalidUsernameAndPassword() {
-		 hm.typeUserName(prop.getProperty("Username"));
-		 hm.typePassword(prop.getProperty("Password"));
+	 @When ("^user enters invalid \"(.*)\" and \"(.*)\"$")
+	 public void userEntersInvalidUsernameAndPassword(String username, String password) {
+		 hm.typeUserName(prop.getProperty(username));
+		 hm.typePassword(prop.getProperty(password));
 	 }
 	 
 	 @And ("^clicks on sign-in button$")

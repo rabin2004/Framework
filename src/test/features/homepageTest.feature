@@ -20,8 +20,12 @@
 Feature: Login Test
 
   @tag1
-  Scenario: Login with invalid username and invalid password
+  Scenario Outline: Login with invalid username and invalid password
     Given user is already in the homepage
-    When user enters invalid username and password
+    When user enters invalid "<username>" and "<password>"
     And clicks on sign-in button
     Then user should not be allowed to sign-in
+
+    Examples:
+    |username|password|
+   	|Username|Password|

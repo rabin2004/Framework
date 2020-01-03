@@ -1,9 +1,6 @@
 package step_definations;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.Properties;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -17,7 +14,6 @@ import cucumber.api.java.Before;
 
 public class Hooks{
     public static WebDriver driver;
-    public Properties prop;
     
     @Before
     /**
